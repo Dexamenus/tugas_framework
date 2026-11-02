@@ -1,0 +1,18 @@
+services:
+  # nama service container basis data
+  postgres-db: 
+    image: postgres:16-alpine
+    container_name: dexsabase
+    restart: always
+    environment:
+      POSTGRES_USER: dexamenus
+      POSTGRES_PASSWORD: supahsecretNumberOne
+      POSTGRES_DB: dexbase
+    ports:
+      # format: "PortKomputerKalian:PortKomputerContainerDocker"
+      - "5432:5432"
+    volumes:
+      - postgres_data_volume:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_volume:
